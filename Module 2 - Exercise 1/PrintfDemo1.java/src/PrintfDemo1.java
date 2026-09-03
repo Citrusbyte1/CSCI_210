@@ -5,10 +5,10 @@
  * <p><b>Problem Statement:</b> Describe what the program is given
  * and what it must produce.</p>
  *
- * <p><b>Algorithm:</b></p>
+ * <p><b>Algorithm: Defines all the companies + their associated data</b></p>
  * <ol>
- *   <li>Step one...</li>
- *   <li>Step two...</li>
+ *   <li>Step one: Prints the header for basic organization</li>
+ *   <li>Step two: Prints companies' information in the requested format.</li>
  * </ol>
  *
  * @author Brian Nguyen
@@ -16,6 +16,7 @@
  */
   public class PrintfDemo1 {
       /**
+       * Main method for the PrintfDemo1 program.
        * Prints company names, categories, employee counts, and revenues in
        * several aligned formats.
        *
