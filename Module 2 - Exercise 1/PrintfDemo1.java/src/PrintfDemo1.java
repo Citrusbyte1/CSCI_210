@@ -11,10 +11,11 @@
  *   <li>Step two...</li>
  * </ol>
  *
- * @author Your Name
- * @version Module X, Assignment Y
+ * @author Brian Nguyen
+ * @version Module 2, Exercise 1
  */
-  public class PrintfDemo {
+
+  public class PrintfDemo1 {
       /**
        * Prints company names, categories, employee counts, and revenues in
        * several aligned formats.
