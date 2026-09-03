@@ -14,7 +14,6 @@
  * @author Brian Nguyen
  * @version Module 2, Exercise 1
  */
-
   public class PrintfDemo1 {
       /**
        * Prints company names, categories, employee counts, and revenues in
