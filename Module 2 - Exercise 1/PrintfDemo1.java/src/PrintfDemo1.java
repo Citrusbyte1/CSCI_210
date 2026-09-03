@@ -1,6 +1,6 @@
 /**
- * <h2>ClassName</h2>
- * <p>One or two sentences describing what the program does.</p>
+ * <h2>PrintfDemo1</h2>
+ * <p>A practice program for using printf formatting with the given guidelines from Canvas</p>
  *
  * <p><b>Problem Statement:</b> Describe what the program is given
  * and what it must produce.</p>
