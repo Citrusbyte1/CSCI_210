@@ -1,4 +1,15 @@
+  /**
+   * Demonstrates formatted output for company information using {@code printf}.
+   * @author Brian Nguyen
+   * @version Module 2, Exercise 1
+   */
   public class PrintfDemo {
+      /**
+       * Prints company names, categories, employee counts, and revenues in
+       * several aligned formats.
+       *
+       * @param args command-line arguments, which are not used
+       */
       public static void main(String[] args) {  
  
         // Define two companies
