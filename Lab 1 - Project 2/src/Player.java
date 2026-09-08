@@ -1,0 +1,46 @@
+public class Player {
+    private String name;
+    private int goals;
+    private int assists;
+
+    public Player() {
+        name = "none";
+        goals = 0;
+        assists = 0;
+    }
+
+    public Player(String name, int goals, int assists) {
+        this.name = name;
+        this.goals = goals;
+        this.assists = assists;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getGoals() {
+        return goals;
+    }
+
+    public void setGoals(int goals) {
+        this.goals = goals;
+    }
+
+    public int getAssists() {
+        return assists;
+    }
+
+    public void setAssists(int assists) {
+        this.assists = assists;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Goals: " + goals + ", Assists: " + assists;
+    }
+}
