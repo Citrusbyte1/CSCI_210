@@ -3,7 +3,4 @@ public class Project2 {
         System.out.println("AAARRRRRGGGGHHHH");
     }
 
-        private static <string> void remove(string fullName, int goals, int assists) {
-            
-    }
 }
