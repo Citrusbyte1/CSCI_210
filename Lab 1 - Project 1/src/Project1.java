@@ -70,15 +70,14 @@ public class Project1 {
         
         char message[] = {'t', 'Q', 'b', ')', '+', 'v', '5', '('} ;
 
-        int count[] = message.length ;
-
-        showArray(message, count[0]) ;
+        int count = message.length ;
 
         count = remove(message, count, 3) ; // Remove the character at index 3
+        showArray(message, count);
         update(message, (short) -7, 1) ; // Update the character at index 1 to -7
         count = remove(message, count, 0) ;
         update(message, (short) 44, 4) ;
-        count = remove(message, count, 1) ;
+        count = remove(message, count, 2) ;
         update(message, (short) -1, 1) ;
         count = remove(message, count, count - 1) ;
 
@@ -93,10 +92,22 @@ public class Project1 {
         }
 
         for (int i = removeIndex ; i < count - 1 ; i++ ) {
-            array[1] = array[i + 1] ;
+            array[i] = array[i + 1] ;
         }
 
         array[count - 1] = '\0' ;
         return count - 1 ;
+    }
+
+    private static void update(char array[], short amount, int index) {
+        array[index] = ( char ) ( array[ index ] + amount ) ;
+    }
+
+    private static void showArray(char array[], int count) {
+        System.out.print( "Message: " );
+        for (int i = 0 ; i < count ; i++ ) {
+            System.out.print( array[ i ] );
+        }
+        System.out.println() ;
     }
 }
