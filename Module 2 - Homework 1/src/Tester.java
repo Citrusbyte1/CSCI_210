@@ -9,7 +9,7 @@
  *   <li>size (int) the number of elements in the arraylist</li>
  *   <li>capacity (int) the size of the underlying array elements[].</li>
  * </ul>
- * @author <your name here>
+ * @author Brian Nguyen
  * @version Module 2, Homework 1
  */
 

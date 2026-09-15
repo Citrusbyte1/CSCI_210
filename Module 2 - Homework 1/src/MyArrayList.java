@@ -7,7 +7,7 @@
  *   <li>elements[] String[] an array of Strings in the ArrayList</li>
  *   <li>size (int) the number of elements in the ArrayList</li>
  * </ul>
- * @author <your name here>
+ * @author Brian Nguyen
  * @version Module 2, Homework 1
  */
 
