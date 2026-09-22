@@ -9,7 +9,7 @@
  *   <li>size (int) the number of elements in the arraylist</li>
  *   <li>capacity (int) the size of the underlying array elements[].</li>
  * </ul>
- * @author Brian Nguyen
+ * @author <your name here>
  * @version Module 2, Homework 1
  */
 
@@ -31,7 +31,7 @@ public class Tester {
         // Release memory
         list1 = list2 = null;
         //********************** Test getters, add, set, and at methods **********************/
-        
+        /*
         // Create an arraylist with default constructor, then fill with 1,000 lines.
         System.out.println("\nCreate an arraylist and fill with 1,000 Strings.");
         list1 = new MyArrayList();
@@ -45,7 +45,7 @@ public class Tester {
         // Get the value at index 429, print old value, change to "New string"), and use the at
         // method to show old and new values.
         System.out.println("Old element at index 429: " + list1.at(429));
-        list1.set(429, "A new string at " + 429);
+        list1.set(429, "A new string " + 429);
         System.out.println("New element at index 429: " + list1.at(429) + "\n");
 
         // Try to access an element outside the valid range (valid range should be
@@ -60,10 +60,10 @@ public class Tester {
         list1.set(-1, "Bad value");
         System.out.println("Try to set an element at position: " + index);
         list1.set(index, "Another bad value");
-        
+        */
 
         //********************* Test the second add and the remove ******************/
-        
+        /*
         // Try to insert a new line before each existing line, working backwards in the arraylist
         for (int i = 999; i >= 0; i--) {
             list1.add(i, "A new line " + i);
@@ -86,6 +86,6 @@ public class Tester {
         System.out.println("\nAfter running the \"trimToSize\" method:");
         list1.trimToSize();
         list1.show(false);
-        
+        */
     }
 }
