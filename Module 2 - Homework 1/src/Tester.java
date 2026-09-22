@@ -31,7 +31,7 @@ public class Tester {
         // Release memory
         list1 = list2 = null;
         //********************** Test getters, add, set, and at methods **********************/
-        /*
+        
         // Create an arraylist with default constructor, then fill with 1,000 lines.
         System.out.println("\nCreate an arraylist and fill with 1,000 Strings.");
         list1 = new MyArrayList();
@@ -60,10 +60,10 @@ public class Tester {
         list1.set(-1, "Bad value");
         System.out.println("Try to set an element at position: " + index);
         list1.set(index, "Another bad value");
-        */
+        
 
         //********************* Test the second add and the remove ******************/
-        /*
+        
         // Try to insert a new line before each existing line, working backwards in the arraylist
         for (int i = 999; i >= 0; i--) {
             list1.add(i, "A new line " + i);
@@ -86,6 +86,6 @@ public class Tester {
         System.out.println("\nAfter running the \"trimToSize\" method:");
         list1.trimToSize();
         list1.show(false);
-        */
+        
     }
 }
