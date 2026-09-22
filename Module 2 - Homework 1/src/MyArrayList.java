@@ -14,16 +14,16 @@
 public class MyArrayList {
 
     // Named constants
-    /** Capacity when no-argument constructor is used */
+    /** Capacity when constructor with no specific size is used */
     public static final int DEFAULT_CAPACITY = 10;
     
-        /** Below this capacity, automatic trimming in remove() will not occur */
+        /** Below this capacity, automatic trimming in remove() won't happen*/
     public static final int AUTO_TRIM_MINIMUM = 100;
  
-    /** Automatic trimming occurs when (size / capacity) falls below this ratio */
+    /** Automatic trimming occurs when size over capacity falls below the 1/2 ratio */
     public static final double AUTO_TRIM_THRESHOLD = 0.5;
  
-    /** When automatic trimming occurs, capacity is multiplied by this amount */
+    /** When automatic trimming occurs, capacity is multiplied by 0.6 */
     public static final double AUTO_TRIM_AMOUNT = 0.6;
 
     // Instance variables
@@ -108,8 +108,7 @@ public class MyArrayList {
     }
  
     /**
-     * <p>Getter for the capacity of the Arraylist (the length of the
-     * underlying array).</p>
+     * <p>Getter for the capacity of the Arraylist (underlying array length).</p>
      * @return the capacity of the Arraylist
      */
     public int getCapacity() {
@@ -118,7 +117,7 @@ public class MyArrayList {
  
     /**
      * <p>Add a String to the end of the Arraylist. If the capacity
-     * must be increased, it will be doubled automatically.</p>
+     * has to increase, it will be doubled automatically.</p>
      * @param newElement the String to be added to the list's end
      */
     public void add(String newElement) {
@@ -130,8 +129,8 @@ public class MyArrayList {
     }
  
     /**
-     * <p>Set the value of an element at position "index" to a String.
-     * (Note: index must be between 0 and (size - 1).</p>
+     * <p>Set the value of an element at position "index" to a String
+     * if index is between 0 and (size - 1).</p>
      * @param index the position in the Arraylist to be updated
      * @param newElement the new String for element at position index
      * @return true if the element was updated, false otherwise
@@ -146,7 +145,7 @@ public class MyArrayList {
     }
  
     /**
-     * <p>Return the String element at a specific index in the list.</p>
+     * <p>Return the String element at a specified index in the list.</p>
      * @param index the position of the String to be returned in the list
      * @return the String at the given index, or null if index is out of range
      */
@@ -160,8 +159,7 @@ public class MyArrayList {
  
     /**
      * <p>Insert a String anywhere in the Arraylist. If the capacity
-     * must be increased, it will be doubled automatically via
-     * this method. (Note: index must be between 0 and size).</p>
+     * has to increase, it will be doubled automatically.</p>
      * @param index the position in the Arraylist of the new String
      * @param newElement the String to be added to end of the list
      * @return true if the element was added, false otherwise
@@ -177,8 +175,8 @@ public class MyArrayList {
         }
  
         // Shift elements up one position, starting from the end and working
-        // backward -- otherwise each value would be overwritten before it
-        // had a chance to be copied into its new position
+        // backward to avoid each value being overwritten before it can be
+        // copied into its new position
         for (int i = size - 1; i >= index; i--) {
             elements[i + 1] = elements[i];
         }
@@ -190,8 +188,7 @@ public class MyArrayList {
     }
  
     /**
-     * <p>Remove the element at position "index" from the Arraylist.
-     * (Note: index must be between 0 and (size - 1).</p>
+     * <p>Remove the element at position "index" from the Arraylist.</p>
      * @param index position in the list whose element is be removed
      * @return true if the element was removed, false otherwise
      */
@@ -207,7 +204,7 @@ public class MyArrayList {
         }
         size--;
  
-        // Automatic trimming: shrink the array once it becomes too sparse
+        // Automatic trimming: shrink the array if theres empty space.
         if (elements.length < AUTO_TRIM_MINIMUM) {
             return true;
         }
@@ -221,8 +218,7 @@ public class MyArrayList {
     }
  
     /**
-     * <p>Reduces the capacity of the Arraylist to its size,
-     * eliminating unused space.</p>
+     * <p>Reduces the capacity of the Arraylist, eliminating unused space.</p>
      */
     public void trimToSize() {
         if (size == elements.length) {

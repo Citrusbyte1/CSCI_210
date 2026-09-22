@@ -45,7 +45,7 @@ public class Tester {
         // Get the value at index 429, print old value, change to "New string"), and use the at
         // method to show old and new values.
         System.out.println("Old element at index 429: " + list1.at(429));
-        list1.set(429, "A new string " + 429);
+        list1.set(429, "A new string at " + 429);
         System.out.println("New element at index 429: " + list1.at(429) + "\n");
 
         // Try to access an element outside the valid range (valid range should be
