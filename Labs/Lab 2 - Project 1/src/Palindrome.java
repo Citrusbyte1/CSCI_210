@@ -73,7 +73,7 @@ public class Palindrome {
             while (true) {
 
                 // Prompt for a String to test
-                System.out.print("Enter a String to test (or press \"Enter\" to quit): ");
+                IO.print("Enter a String to test (or press \"Enter\" to quit): ");
                 String stringToTest = keyboard.nextLine();
 
                 // If the String is empty, then stop
@@ -83,7 +83,7 @@ public class Palindrome {
 
                 // Determine whether that String is a palindrome and tell the user.
                 boolean result = isPalindrome(stringToTest);
-                System.out.println("\"" + stringToTest + "\" is" + (result ? "" : " not ") + " a palindrome.");
+                IO.println("\"" + stringToTest + "\" is" + (result ? "" : " not ") + " a palindrome.");
             } // end of loop
         }
     } // end main
