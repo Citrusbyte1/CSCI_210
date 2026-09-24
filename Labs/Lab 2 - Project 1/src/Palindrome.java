@@ -67,7 +67,7 @@ public class Palindrome {
 
     public static void main(String[] args) {
 
-        // Open a Scanner object for the keyboard
+        // Open a Scanner object for keyboard inputs
         try (Scanner keyboard = new Scanner(System.in)) {
             // Loop until the user enters an empty string.
             while (true) {
@@ -76,17 +76,17 @@ public class Palindrome {
                 IO.print("Enter a String to test (or press \"Enter\" to quit): ");
                 String stringToTest = keyboard.nextLine();
 
-                // If the String is empty, then stop
+                // If the String is empty, stop
                 if (stringToTest.isEmpty()) {
                     break;
                 }
 
-                // Determine whether that String is a palindrome and tell the user.
+                // Check if String is a palindrome, then report the user.
                 boolean result = isPalindrome(stringToTest);
                 IO.println("\"" + stringToTest + "\" is" + (result ? "" : " not ") + " a palindrome.");
-            } // end of loop
+            }
         }
-    } // end main
+    }
 
     // Return "true" if a String is a palindrome, otherwise return false.
     private static boolean isPalindrome(String testString) {
@@ -94,7 +94,7 @@ public class Palindrome {
         // Create one big loop:
         while (true) {
 
-            // If the length of the testString is less than 2, then it's a palindrome
+            // If the length of the testString is less than 2, then it's technically a palindrome
             if (testString.length() < 2) {
                 return true;
             }
@@ -103,8 +103,7 @@ public class Palindrome {
             char firstChar = Character.toUpperCase( testString.charAt(0) );
             char lastChar = Character.toUpperCase( testString.charAt(testString.length() - 1));
 
-            // If the first character isn't alphanumeric, then remove it and restart loop
-            if (! Character.isLetterOrDigit( firstChar )) {
+            // If the first character isn't alphanumeric, then remove it and restart
                 testString = testString.substring(1);
                 continue;
             }
@@ -124,4 +123,3 @@ public class Palindrome {
             testString = testString.substring(1, testString.length() - 1);
         }
     }
-}
