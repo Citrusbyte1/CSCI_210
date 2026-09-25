@@ -67,26 +67,26 @@ public class Palindrome {
 
     public static void main(String[] args) {
 
-        // Open a Scanner object for keyboard inputs
-        try (Scanner keyboard = new Scanner(System.in)) {
-            // Loop until the user enters an empty string.
-            while (true) {
+        // Open a Scanner object for the keyboard
+        Scanner keyboard = new Scanner(System.in);
 
-                // Prompt for a String to test
-                IO.print("Enter a String to test (or press \"Enter\" to quit): ");
-                String stringToTest = keyboard.nextLine();
+        // Loop until the user enters an empty string.
+        while (true) {
 
-                // If the String is empty, stop
-                if (stringToTest.isEmpty()) {
-                    break;
-                }
+            // Prompt for a String to test
+            System.out.print("Enter a String to test (or press \"Enter\" to quit): ");
+            String stringToTest = keyboard.nextLine();
 
-                // Check if String is a palindrome, then report the user.
-                boolean result = isPalindrome(stringToTest);
-                IO.println("\"" + stringToTest + "\" is" + (result ? "" : " not ") + " a palindrome.");
+            // If the String is empty, then stop
+            if (stringToTest.isEmpty()) {
+                System.exit(0);
             }
-        }
-    }
+
+            // Determine whether that String is a palindrome and tell the user.
+            boolean result = isPalindrome(stringToTest);
+            System.out.println("\"" + stringToTest + "\" is" + (result ? "" : " not ") + " a palindrome.");
+        } // end of loop
+    } // end main
 
     // Return "true" if a String is a palindrome, otherwise return false.
     private static boolean isPalindrome(String testString) {
@@ -94,7 +94,7 @@ public class Palindrome {
         // Create one big loop:
         while (true) {
 
-            // If the length of the testString is less than 2, then it's technically a palindrome
+            // If the length of the testString is less than 2, then it's a palindrome
             if (testString.length() < 2) {
                 return true;
             }
@@ -103,7 +103,7 @@ public class Palindrome {
             char firstChar = Character.toUpperCase( testString.charAt(0) );
             char lastChar = Character.toUpperCase( testString.charAt(testString.length() - 1));
 
-            // If the first character isn't alphanumeric, then remove it and restart
+            // If the first character isn't alphanumeric, then remove it and restart loop
             if (! Character.isLetterOrDigit( firstChar )) {
                 testString = testString.substring(1);
                 continue;
