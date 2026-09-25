@@ -57,7 +57,7 @@
  *       restart the loop.</li>
  * </ol>
  *
- * @author Brian Nguyen
+ * @author Chris Merrill
  * @version Module 2, Lab 1
  */
 
