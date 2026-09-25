@@ -104,6 +104,7 @@ public class Palindrome {
             char lastChar = Character.toUpperCase( testString.charAt(testString.length() - 1));
 
             // If the first character isn't alphanumeric, then remove it and restart
+            if (! Character.isLetterOrDigit( firstChar )) {
                 testString = testString.substring(1);
                 continue;
             }
@@ -123,3 +124,4 @@ public class Palindrome {
             testString = testString.substring(1, testString.length() - 1);
         }
     }
+}
