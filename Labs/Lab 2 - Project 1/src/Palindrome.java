@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * <h2>Palindrome.java - Determine if a String is a palindrome.</h2>
  *
@@ -60,8 +62,6 @@
  * @author Chris Merrill
  * @version Module 2, Lab 1
  */
-
-import java.util.Scanner;
 
 public class Palindrome {
 

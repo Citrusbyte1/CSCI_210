@@ -1,1 +1,1 @@
-tagSearchIndex = [];updateSearchResults();
+tagSearchIndex = [{"l":"Palindrome.java - Determine if a String is a palindrome.","h":"class Palindrome","k":"16","u":"Palindrome.html#palindrome-java---determine-if-a-string-is-a-palindrome--heading"}];updateSearchResults();
