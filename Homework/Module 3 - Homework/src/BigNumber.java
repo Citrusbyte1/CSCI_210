@@ -5,11 +5,11 @@ import java.util.NoSuchElementException;
  * <p><b>Description:</b></p>
  * <p style="margin-left: 30px;">
  *     Contains a LinkedList<E> class with inner classes Node<E> and ListIterator.</p>
- * @author <your name here>
+ * @author Brian Nguyen
  * @version Module 3, Homework 1 and 2
  */
 
-public class LinkedList<E> {
+public class BigNumber<E> {
 
     private Node<E> head;
 
