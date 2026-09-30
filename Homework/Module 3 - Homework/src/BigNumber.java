@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
 /**
@@ -23,7 +24,7 @@ public class BigNumber<E> {
     /**
      * No-argument constructor sets the "head" variable to null.
      */
-    public LinkedList() {
+    public BigNumber() {
         head = null;
     }
 
@@ -158,7 +159,7 @@ public class BigNumber<E> {
         }
 
         @SuppressWarnings("unchecked")
-        LinkedList<E> anotherList = (LinkedList<E>) anObject;
+        BigNumber<E> anotherList = (BigNumber<E>) anObject;
 
         // Both lists should be the same size
         if (size() != anotherList.size()) {
@@ -312,7 +313,7 @@ public class BigNumber<E> {
 
                 // If the list is empty, then invoke the iterator's add method
             } else if (position == null || previous == null) {
-                LinkedList.this.addFront(newData);
+                BigNumber.this.addFront(newData);
 
                 // Otherwise insert this new node between previous and position
             } else {
