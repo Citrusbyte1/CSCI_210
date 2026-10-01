@@ -25,7 +25,8 @@ public class BigNumber<E> {
      * No-argument constructor sets the "head" variable to null.
      */
     public BigNumber() {
-        head = null;
+        // Initialize the linked list of digits
+        digits = new BigNumber<>();
     }
 
     /**
@@ -127,23 +128,22 @@ public class BigNumber<E> {
      * Returns a String with the list of all items in the list
      * @return a String with the list (using toString) of all items in the list
      */
+    
     public String toString() {
-
-        StringBuilder returnString = new StringBuilder("Items in list: ");
-
-        // Start at the front of the list
+ 
+        StringBuilder returnString = new StringBuilder();
         Node<E> position = head;
-
-        // Add each node
-        if (head == null) {
-            returnString.append("(none)");
-        } else {
-            while (position != null) {
-                returnString.append(position.data).append(" ");
-                position = position.link;
+ 
+        // Add each digit (or a decimal point in place of -1)
+        while (position != null) {
+            if (position.data.equals(-1)) {
+                returnString.append(".");
+            } else {
+                returnString.append(position.data);
             }
+            position = position.link;
         }
-
+ 
         return returnString.toString();
     }
 
@@ -186,6 +186,69 @@ public class BigNumber<E> {
      *                    Add your methods below here                      *
      *                                                                     *
      ***********************************************************************/
+
+    //linked list of int objects that represent digits 0-9, with -1 representing a decimal
+    private BigNumber<Integer> digits;
+
+    //an addLast method that adds a digit to the end of the list.
+    public void addLast(E value) {
+    Node<E> newNode = new Node<>(value, null);
+
+        if (head == null) {
+        head = newNode;
+        return;
+        }
+
+        Node<E> current = head;
+        while (current.link != null) {
+        current = current.link;
+        }
+
+        current.link = newNode;
+    }
+
+
+    public void addRight(E value) {
+
+        int digit = Integer.parseInt(value.toString());
+
+        if (digit >= 0 && digit <= 9) {
+            digits.addLast(digit);
+        } else {
+            System.out.println("Error: Digit must be between 0 and 9");
+        }
+    }
+
+    //an addFirst method that adds a digit to the beginning of the list.
+    public void addFirst(E value) {
+
+        Node<E> newNode = new Node<>(value, head);
+
+        head = newNode;
+    }
+
+
+    public void addLeft(E value) {
+
+        int digit = Integer.parseInt(value.toString());
+
+        if (digit >= 0 && digit <= 9) {
+            digits.addFirst(digit);
+        } else {
+            System.out.println("Error: Digit must be between 0 and 9");
+        }
+    }
+
+    //an addDecimal method that adds a decimal point to the end of the list. Additional digits may be added after the decimal point using addLeft, so that the decimal point is in the middle of the final number.
+    public void addDecimal() {
+
+        if (digits.contains(-1)) {
+
+            throw new IllegalStateException("A decimal point has already been added");
+        }
+
+        digits.addLast(-1);
+    }
 
     /* *********************************************************************
      *                                                                     *
