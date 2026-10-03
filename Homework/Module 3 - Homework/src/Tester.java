@@ -24,7 +24,7 @@
  * @author Brian Nguyen
  * @version Module 3, Homework 3, Project 1
  */
-public class BigNumberTester {
+public class Tester {
 
     public static void main(String[] args) {
 

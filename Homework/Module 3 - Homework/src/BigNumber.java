@@ -26,7 +26,7 @@ public class BigNumber<E> {
      */
     public BigNumber() {
         // Initialize the linked list of digits
-        digits = new BigNumber<>();
+        head = null;
     }
 
     /**
@@ -187,67 +187,68 @@ public class BigNumber<E> {
      *                                                                     *
      ***********************************************************************/
 
-    //linked list of int objects that represent digits 0-9, with -1 representing a decimal
-    private BigNumber<Integer> digits;
-
-    //an addLast method that adds a digit to the end of the list.
     public void addLast(E value) {
-    Node<E> newNode = new Node<>(value, null);
+    
+        Node<E> newNode = new Node<>(value, null);
 
         if (head == null) {
-        head = newNode;
-        return;
+            head = newNode;
+            return;
         }
-
+ 
         Node<E> current = head;
-        while (current.link != null) {
-        current = current.link;
-        }
 
+        while (current.link != null) {
+            current = current.link;
+        }
+ 
         current.link = newNode;
     }
-
-
-    public void addRight(E value) {
-
-        int digit = Integer.parseInt(value.toString());
-
-        if (digit >= 0 && digit <= 9) {
-            digits.addLast(digit);
-        } else {
+ 
+ 
+    public void addRight(int digit) {
+ 
+        if (digit < 0 || digit > 9) {
             System.out.println("Error: Digit must be between 0 and 9");
+            return;
         }
-    }
 
+        E digitAsElement = (E) Integer.valueOf(digit);
+
+        addLast(digitAsElement);
+    }
+ 
     //an addFirst method that adds a digit to the beginning of the list.
     public void addFirst(E value) {
-
+ 
         Node<E> newNode = new Node<>(value, head);
-
         head = newNode;
     }
-
-
-    public void addLeft(E value) {
-
-        int digit = Integer.parseInt(value.toString());
-
-        if (digit >= 0 && digit <= 9) {
-            digits.addFirst(digit);
-        } else {
+ 
+ 
+    public void addLeft(int digit) {
+ 
+        if (digit < 0 || digit > 9) {
             System.out.println("Error: Digit must be between 0 and 9");
+            return;
         }
+
+        E digitAsElement = (E) Integer.valueOf(digit);
+
+        addFirst(digitAsElement);
     }
-
-    //an addDecimal method that adds a decimal point to the end of the list. Additional digits may be added after the decimal point using addLeft, so that the decimal point is in the middle of the final number.
+ 
+    //an addDecimal method that adds a decimal point to the end of the list. More digits can be added after the decimal point using addLeft, so that the decimal point is in the middle of the final number.
     public void addDecimal() {
-
-        if (digits.contains(-1)) {
-
-            throw new IllegalStateException("A decimal point has already been added");
+ 
+        if (contains(-1)) {
+            System.out.println("Error: A decimal point has already been added");
+            return;
         }
 
-        digits.addLast(-1);
+        E decimalMarker = (E) Integer.valueOf(-1);
+
+        addFirst(decimalMarker);
     }
 
     /* *********************************************************************
