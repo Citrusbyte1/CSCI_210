@@ -114,7 +114,7 @@ public class Tester {
         // Demonstrate the error checking built into addRight, addLeft,
         // and addDecimal with calls that should change the number.
         // ===============================================================
-        System.out.println("\nDemonstrating error handling:");
+        System.out.println("\nError handling:");
         BigNumber<Integer> errorDemo = new BigNumber<>();
         errorDemo.addRight(15);       // invalid digit -- out of range
         errorDemo.addLeft(-3);              // invalid digit  -- out of range
