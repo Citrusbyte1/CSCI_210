@@ -218,7 +218,7 @@ public class BigNumber<E> {
         addLast(digitAsElement);
     }
  
-    //an addFirst method that adds a digit to the beginning of the list.
+    //a method that adds a digit to the beginning of a list.
     public void addFirst(E value) {
  
         Node<E> newNode = new Node<>(value, head);
@@ -238,7 +238,8 @@ public class BigNumber<E> {
         addFirst(digitAsElement);
     }
  
-    //an addDecimal method that adds a decimal point to the end of the list. More digits can be added after the decimal point using addLeft, so that the decimal point is in the middle of the final number.
+    //a method that adds a decimal point to the end of a list.
+    // More digits can be added after the decimal point using addLeft.
     public void addDecimal() {
  
         if (contains(-1)) {

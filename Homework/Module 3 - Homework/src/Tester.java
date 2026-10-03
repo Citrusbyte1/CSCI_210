@@ -1,24 +1,21 @@
 /**
- * <h2>BigNumberTester.java - Tests the BigNumber class.</h2>
+ * <h2>Tester.java - Tests the BigNumber class.</h2>
  *
- * <p><b>Problem Statement:</b> Demonstrate that a BigNumber can be built
+ * <p><b>Problem Statement:</b> Shows that a BigNumber can be built
  * one digit at a time (from either end, or with a decimal point inserted
- * partway through), that it correctly rejects invalid input, and that its
- * digits can be read back both as a formatted String and one at a time
- * using an iterator.</p>
+ * in), that it rejects invalid input, and that its digits can be read
+ * both as a formatted String and an iterator.</p>
  *
  * <p><b>Algorithm:</b></p>
  * <ol>
  *   <li>Build three BigNumbers, each with 10 or more digits. Two of them
- *       interleave calls to addRight, addDecimal, and addLeft so that the
- *       decimal point ends up in the middle of the number, with digits on
- *       both sides. The third is a plain whole number built with
- *       addRight.</li>
- *   <li>For each BigNumber, display it using toString(), then again by
+ *       use addRight, addDecimal, and addLeft so that the decimal point
+ *       ends up in the middle of the number, with digits on both sides.
+ *       The third is a plain whole number built with addRight.</li>
+ *   <li>Each BigNumber is displayed using toString(), then again by
  *       reading its digits one at a time with an iterator.</li>
  *   <li>Demonstrate that addRight, addLeft, and addDecimal all reject
- *       invalid input (an out-of-range digit, or a second decimal
- *       point) without changing the number.</li>
+ *       invalid input without changing the number.</li>
  * </ol>
  *
  * @author Brian Nguyen
@@ -28,22 +25,14 @@ public class Tester {
 
     public static void main(String[] args) {
 
-        // ---------------------------------------------------------------
+        // ===============================================================
         // Test 1: a decimal point in the middle of the number.
         //
-        // addDecimal() always inserts the decimal marker at the CURRENT
-        // front of the list. So to end up with the decimal point in the
-        // middle, the fractional digits must be added first (with
-        // addRight, in normal left-to-right order), THEN the decimal
-        // point, and only THEN the integer-part digits -- added with
-        // addLeft in reverse order, since each addLeft call pushes ahead
-        // of everything already in the list.
-        //
         // Expected result: 12345.678901
-        // ---------------------------------------------------------------
+        // ===============================================================
         BigNumber<Integer> number1 = new BigNumber<>();
 
-        // Build the fractional part "678901" first, left to right
+        // Build the "678901" part first, left to right
         number1.addRight(6);
         number1.addRight(7);
         number1.addRight(8);
@@ -51,11 +40,11 @@ public class Tester {
         number1.addRight(0);
         number1.addRight(1);
 
-        // Insert the decimal point immediately before the fractional part
+        // Insert the decimal point
         number1.addDecimal();
 
-        // Build the integer part "12345", adding its digits in reverse
-        // order (5, 4, 3, 2, 1) so that they end up reading correctly
+        // Build the "12345" part , adding in reverse
+        // order (5, 4, 3, 2, 1) so that they end up correct
         number1.addLeft(5);
         number1.addLeft(4);
         number1.addLeft(3);
@@ -66,16 +55,15 @@ public class Tester {
         System.out.print("Test 1 - iterator:    ");
         printDigitByDigit(number1);
 
-        // ---------------------------------------------------------------
+        // ===============================================================
         // Test 2: another decimal point in the middle, using the same
-        // technique as Test 1 (fractional part first, then the decimal
-        // point, then the integer part added in reverse).
+        // method as Test 1.
         //
         // Expected result: 3.14159265358
-        // ---------------------------------------------------------------
+        // ===============================================================
         BigNumber<Integer> number2 = new BigNumber<>();
 
-        // Build the fractional part "14159265358"
+        // Build the "14159265358" part
         number2.addRight(1);
         number2.addRight(4);
         number2.addRight(1);
@@ -91,20 +79,20 @@ public class Tester {
         // Insert the decimal point
         number2.addDecimal();
 
-        // Build the (single-digit) integer part "3"
+        // Build the "3" part
         number2.addLeft(3);
 
         System.out.println("\nTest 2 - toString():  " + number2);
         System.out.print("Test 2 - iterator:    ");
         printDigitByDigit(number2);
 
-        // ---------------------------------------------------------------
-        // Test 3: a plain whole number, no decimal point. Since there's
-        // no decimal point to worry about, the digits can simply be
-        // appended left to right using addRight.
+        // ===============================================================
+        // Test 3: a plain whole number, no decimal point. With no decimal
+        // point to worry about, the digits can simply be appended left to
+        // right using addRight.
         //
         // Expected result: 1234567890
-        // ---------------------------------------------------------------
+        // ===============================================================
         BigNumber<Integer> number3 = new BigNumber<>();
 
         number3.addRight(1);
@@ -122,26 +110,19 @@ public class Tester {
         System.out.print("Test 3 - iterator:    ");
         printDigitByDigit(number3);
 
-        // ---------------------------------------------------------------
+        // ===============================================================
         // Demonstrate the error checking built into addRight, addLeft,
-        // and addDecimal. None of these calls should change the number.
-        // ---------------------------------------------------------------
+        // and addDecimal with calls that should change the number.
+        // ===============================================================
         System.out.println("\nDemonstrating error handling:");
         BigNumber<Integer> errorDemo = new BigNumber<>();
-        errorDemo.addRight(15);     // invalid digit -- out of range
-        errorDemo.addLeft(-3);      // invalid digit -- out of range
-        errorDemo.addDecimal();     // valid -- the number's first decimal point
-        errorDemo.addDecimal();     // invalid -- already has a decimal point
+        errorDemo.addRight(15);       // invalid digit -- out of range
+        errorDemo.addLeft(-3);              // invalid digit  -- out of range
+        errorDemo.addDecimal();             // valid          -- number's first decimal point
+        errorDemo.addDecimal();             // invalid        -- already has a decimal point
         System.out.println("Number after error demo (should just be \".\"): " + errorDemo);
     }
 
-    /**
-     * Uses a BigNumber's iterator to print its digits one at a time,
-     * printing a decimal point wherever the -1 sentinel value appears
-     * (instead of printing the number -1 itself).
-     *
-     * @param number the BigNumber whose digits should be printed
-     */
     private static void printDigitByDigit(BigNumber<Integer> number) {
         BigNumber<Integer>.ListIterator it = number.iterator();
         while (it.hasNext()) {
