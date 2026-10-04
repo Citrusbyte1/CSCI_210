@@ -9,7 +9,7 @@ import java.util.NoSuchElementException;
  * @version Module 3, Homework 1 and 2
  */
 
-public class LinkedList<E> {
+public class LinkedList<E extends Comparable<E>> {
 
     private Node<E> head;
 
@@ -186,6 +186,27 @@ public class LinkedList<E> {
      *                                                                     *
      ***********************************************************************/
 
+    public void addOrdered(E newItem) {
+
+    ListIterator it = iterator();
+
+    // count how many existing elements newItem belongs after, don't insert
+    // anything yet.
+    int insertIndex = 0;
+    while (it.hasNext() && newItem.compareTo(it.next()) >= 0) {
+        insertIndex++;
+        IO.print(insertIndex);
+    }
+
+    // restarts the iterator from the beginning, then insert newItem at
+    // insertIndex elements.
+    it.restart();
+    for (int i = 0; i < insertIndex; i++) {
+        it.next();
+    }
+    it.add(newItem);
+}
+    
     /* *********************************************************************
      *                                                                     *
      *                   Add your methods above here                       *
