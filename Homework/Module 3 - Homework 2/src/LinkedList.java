@@ -195,7 +195,7 @@ public class LinkedList<E extends Comparable<E>> {
     int insertIndex = 0;
     while (it.hasNext() && newItem.compareTo(it.next()) >= 0) {
         insertIndex++;
-        IO.print(insertIndex);
+        // IO.print(insertIndex);
     }
 
     // restarts the iterator from the beginning, then insert newItem at
