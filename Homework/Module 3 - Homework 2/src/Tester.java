@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 /**
  * <h2>LinkedListTester.java - Tests the addOrdered method from LinkedList.</h2>
  *
@@ -18,6 +16,8 @@ import java.util.Arrays;
  * @author Brian Nguyen
  * @version Homework 3, Project 2
  */
+
+import java.util.Arrays;
 
 public class Tester {
     public static void main(String[] args) {

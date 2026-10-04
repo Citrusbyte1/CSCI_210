@@ -1,5 +1,3 @@
-import java.util.NoSuchElementException;
-
 /**
  * <h2>LinkedList.java - LinkedList used to start Homework assignments for Module 3.</h2>
  * <p><b>Description:</b></p>
@@ -8,6 +6,8 @@ import java.util.NoSuchElementException;
  * @author Brian Nguyen
  * @version Module 3, Homework 1 and 2
  */
+
+import java.util.NoSuchElementException;
 
 public class LinkedList<E extends Comparable<E>> {
 
