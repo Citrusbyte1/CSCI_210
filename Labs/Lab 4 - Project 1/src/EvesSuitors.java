@@ -13,9 +13,9 @@ public class EvesSuitors {
     public static void main(String[] args) {
 
         runSimulation(4);
-        System.out.println();
+        IO.println();
         runSimulation(6);
-        System.out.println();
+        IO.println();
         runSimulation(10);
     }
 
@@ -25,14 +25,14 @@ public class EvesSuitors {
      */
     private static void runSimulation(int numberOfSuitors) {
 
-        System.out.println("Simulation with " + numberOfSuitors + " suitors:");
+        IO.println("Simulation with " + numberOfSuitors + " suitors:");
 
         // Build the initial circle of suitors, numbered 1 through n
         CircularList<Integer> suitors = new CircularList<>();
         for (int i = 1; i <= numberOfSuitors; i++) {
             suitors.add(i);
         }
-        System.out.println("Initial list of suitors: " + listToString(suitors));
+        IO.println("Initial list of suitors: " + listToString(suitors));
 
         // Create a single iterator and keep reusing it -- no restarts and
         // no hasNext() checks are needed, since the list is circular
@@ -49,10 +49,10 @@ public class EvesSuitors {
             int eliminated = iter.peek();
             iter.remove();
 
-            System.out.println("Deleting suitor " + eliminated + ": " + listToString(suitors));
+            IO.println("Deleting suitor " + eliminated + ": " + listToString(suitors));
         }
 
-        System.out.println("Suitor " + suitors.getFront() + " wins the hand of the princess!");
+        IO.println("Suitor " + suitors.getFront() + " wins the hand of the princess!");
     }
 
     /**

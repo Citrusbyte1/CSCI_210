@@ -1,7 +1,5 @@
-import java.util.NoSuchElementException;
-
 /**
- * <h2>CircularList.java - Circular Linked List with additional methods.</h2>
+ * <h2>CircularList.java - a Circular Linked List with additional methods.</h2>
  * <p><b>Description:</b></p>
  * <p style="margin-left: 30px;">
  *   Contains a CircularList&lt;E&gt; class with inner classes Node&lt;E&gt; and
@@ -10,8 +8,10 @@ import java.util.NoSuchElementException;
  *   are maintained since there is no null link to mark the end of the
  *   list.</p>
  * @author Brian Nguyen
- * @version Module 4, Exercise #1
+ * @version Module 4, Exercise 1
  */
+
+import java.util.NoSuchElementException;
 
 public class CircularList<E> {
 
