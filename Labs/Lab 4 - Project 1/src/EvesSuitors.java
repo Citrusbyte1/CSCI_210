@@ -6,7 +6,7 @@
  *   1, every 3rd suitor, wrapping around the circle, is eliminated,
  *   until only one remains.</p>
  * @author Brian Nguyen
- * @version Module 4, Lab 4, Project 1
+ * @version Lab 4, Project 1
  */
 public class EvesSuitors {
 
