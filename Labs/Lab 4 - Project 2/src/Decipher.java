@@ -1,14 +1,13 @@
 /**
- * <h2>Decipher.java - Decodes a hidden message from a LinkedList of characters.</h2>
+ * <h2>Decipher.java - Decodes a hidden message from a LinkedList.</h2>
  * <p><b>Description:</b></p>
  * <p style="margin-left: 30px;">
- *   Loads a scrambled String into a java.util.LinkedList of Characters,
- *   repairs two characters using the iterator's set() method (moving
- *   forward with next() and backward with previous()), then reveals a
- *   hidden message by printing every third character starting at a
- *   given position.</p>
+ *   Loads a scrambled String, repairs two characters using the iterator's
+ *   set() method ( moving forward with next() and backward with previous() ),
+ *   then reveals the secret message by printing every third character
+ *   starting at a given position.</p>
  * @author Brian Nguyen
- * @version Lab 4, Part 2
+ * @version Lab 4, Project 2
  */
 
 import java.util.LinkedList;
