@@ -1,10 +1,10 @@
 /**
- * <h2>EvesSuitors.java - Simulates Princess Eve's suitor-elimination game.</h2>
+ * <h2>EvesSuitors.java - Th eEve's suitor elimination game.</h2>
  * <p><b>Description:</b></p>
  * <p style="margin-left: 30px;">
- *   Suitors numbered 1 through n stand in a circle. Starting from suitor
- *   1, every third suitor (counting around the circle, wrapping as
- *   needed) is eliminated, until only one suitor remains.</p>
+ *   Suitors 1 through 'n' stand in a circle. Starting from suitor
+ *   1, every 3rd suitor, wrapping around the circle, is eliminated,
+ *   until only one remains.</p>
  * @author Brian Nguyen
  * @version Module 4, Lab 4, Project 1
  */
@@ -20,29 +20,28 @@ public class EvesSuitors {
     }
 
     /**
-     * Runs the full elimination simulation for a given number of suitors
+     * Runs the full elimination for a given number of suitors
      * and prints the result after every elimination.
      */
     private static void runSimulation(int numberOfSuitors) {
 
         IO.println("Simulation with " + numberOfSuitors + " suitors:");
 
-        // Build the initial circle of suitors, numbered 1 through n
+        // Build the starting circle of suitors, 1 through n
         CircularList<Integer> suitors = new CircularList<>();
         for (int i = 1; i <= numberOfSuitors; i++) {
             suitors.add(i);
         }
         IO.println("Initial list of suitors: " + listToString(suitors));
 
-        // Create a single iterator and keep reusing it -- no restarts and
-        // no hasNext() checks are needed, since the list is circular
+        // Create a single iterator and keep reusing it
         CircularList<Integer>.ListIterator iter = suitors.iterator();
 
         // Eliminate every 3rd suitor until only one remains
         while (suitors.size() > 1) {
 
-            // The suitor currently at the iterator's position counts as
-            // "1", so advance two more positions to reach the count of 3
+            // The suitor currently at the iterator's position counts as "1",
+            // so move two more positions to get to 3
             iter.next();
             iter.next();
 
@@ -56,9 +55,9 @@ public class EvesSuitors {
     }
 
     /**
-     * Builds a plain space-separated String of the suitors in a
-     * CircularList, without the "Items in list:" prefix that toString()
-     * adds, to match the example format in the assignment.
+     * Builds a String of the suitors in a CircularList,
+     * without the "Items in list:" prefix that added by
+     * the toString().
      */
     private static String listToString(CircularList<Integer> list) {
         StringBuilder result = new StringBuilder();
