@@ -52,7 +52,7 @@ public class Decipher {
         // Replace the 'M' with blank
         iter.set(' ');
 
-        // IO.println("List after both changes: " + message);
+        // IO.println(message);
 
         // Re-initialize the iterator starting at index 6
         iter = message.listIterator(6);
