@@ -214,6 +214,76 @@ public class CircularList<E> {
      *                                                                     *
      ***********************************************************************/
 
+    // adds itemToAdd at position "index", shifting everything after that
+    // position over by one, then the iterator to walks to the right spot
+    // and lets the add() do the insertion.
+    public boolean add(int index, E itemToAdd) {
+ 
+        if (index < 0 || index > size()) {
+            return false; // out of bounds
+        }
+ 
+        ListIterator iter = iterator();
+        for (int i = 0; i < index; i++) {
+            iter.next();
+        }
+        iter.add(itemToAdd);
+        return true;
+    }
+ 
+    // adds itemToAdd to the end by reusing the one above with the list's
+    // current size as the index.
+    public boolean add(E itemToAdd) {
+        return add(size(), itemToAdd);
+    }
+ 
+    // removes the item at position "index". Similar to add(), but uses
+    // remove() to unlink.
+    public boolean remove(int index) {
+ 
+        if (index < 0 || index >= size()) {
+            return false;
+        }
+ 
+        ListIterator iter = iterator();
+        for (int i = 0; i < index; i++) {
+            iter.next();
+        }
+        iter.remove();
+        return true;
+    }
+ 
+    // removes the first occurrence of itemToRemove from indexOf(), then
+    // reuses remove(int) to do the actual removal bit.
+    public boolean remove(Object itemToRemove) {
+ 
+        int index = indexOf(itemToRemove);
+        if (index < 0) {
+            return false; // not found
+        }
+        return remove(index);
+    }
+ 
+    // replaces the item at position "index" with newItem, and returns
+    // the item that used to be there. peek() reads the old value
+    // without changing the iterator, then set() overwrites it in place.
+    public E set(int index, E newItem) {
+ 
+        if (index < 0 || index >= size()) {
+            return null; // out of bounds
+        }
+ 
+        ListIterator iter = iterator();
+        for (int i = 0; i < index; i++) {
+            iter.next();
+        }
+ 
+        E oldValue = iter.peek();
+        iter.set(newItem);
+        return oldValue;
+    }
+
+
     /* *********************************************************************
      *                                                                     *
      *                   Add your methods above here                       *
