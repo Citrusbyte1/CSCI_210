@@ -17,51 +17,63 @@ public class Decipher {
 
     public static void main(String[] args) {
 
-        // 1. Create a LinkedList of Characters and add every character of
-        // the scrambled String to the end of the list
+        // Create a LinkedList and add the scrambled message, one char at a time.
         LinkedList<Character> message = new LinkedList<>();
+
         String scrambled = "ZekqmDXJGfaos3MPaCl8o1Lm.9eXEt4ss=C#D";
+
         for (int i = 0; i < scrambled.length(); i++) {
+
             message.add(scrambled.charAt(i));
         }
 
-        // 3. Create a ListIterator over the list
+        // ListIterator for the list.
         ListIterator<Character> iter = message.listIterator();
 
-        // 4. Move forward with next() until the '#' is reached
+        // Move forward with next() until the '#'
         char current = ' ';
+
         while (current != '#') {
+
             current = iter.next();
         }
 
-        // 5. Replace the '#' with '!'
+        // Replace '#' with '!'
         iter.set('!');
 
-        // 6. Move backward with previous() until the capital 'M' is reached
+        // Go backwards with previous() until 'M'
         current = ' ';
+
         while (current != 'M') {
+
             current = iter.previous();
         }
 
-        // 7. Replace the 'M' with a blank
+        // Replace the 'M' with blank
         iter.set(' ');
 
-        System.out.println("List after both repairs: " + message);
+        IO.println("List after both changes: " + message);
 
-        // 8. Re-initialize the iterator, starting at position (index) 6
+        // Re-initialize the iterator starting at index 6
         iter = message.listIterator(6);
 
-        // 9. From that position, print every third character returned by
-        // the iterator until the end of the list is reached
-        System.out.print("Decoded message: ");
+        // Print every third character until the end of the list
+        IO.print("Decoded message: ");
+
         int count = 0;
+
         while (iter.hasNext()) {
+
             char c = iter.next();
+
             count++;
+
             if (count % 3 == 0) {
-                System.out.print(c);
+
+                IO.print(c);
             }
         }
-        System.out.println();
+        
+        IO.println();
     }
 }
