@@ -1,16 +1,15 @@
 /**
- * <h2>MergeLists.java - Merge two sorted lists into a single sorted list.</h2>
- * <p><b>Problem Statement:</b> Create two sorted lists of unknown size, then merge
- *    them into a single sorted list.</p>
+ * <h2>MergeLists.java - Merge two sorted lists into one.</h2>
+ * <p><b>Problem Statement:</b> Create two sorted lists with an unknown size,
+ *    then merge them into a single sorted list.</p>
  * <p><b>Algorithm:</b></p>
  * <ol>
- *   <li>Create 3 empty LinkedLists for Integers. 2 hold sorted lists,
- *       and the third to hold the merged result.</li>
+ *   <li>Create 3 empty LinkedLists for Ints. 2 for holds sorted lists,
+ *       and the last to hold the merged result.</li>
  *   <li>Use the populate method to fill the first 2 lists with random,
- *       increasing integers, each list being a different, randomly-chosen
- *       length.</li>
+ *       increasing integers, of different lengths.</li>
  *   <li>Use the merge method to combine the first 2 lists into the
- *       third. Repeatedly compare the current front value of each list
+ *       third. Repeatedly compare the front values of each list
  *       and append the smaller one to the merged list, until one of the
  *       two lists runs out, then append whatever remains.</li>
  *   <li>Use the display method to print the contents and size of all
