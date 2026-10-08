@@ -1,6 +1,3 @@
-import java.util.Random;
-import java.util.Scanner;
-
 /**
  * <h2>Sorter.java - Use two stacks to sort an array</h2>
  * <p><b>Description:</b> Demonstrate using LinkedLists as stacks to sort
@@ -41,6 +38,10 @@ import java.util.Scanner;
  * @author Chris Merrill
  * @version Module 5, Exercise #3
  */
+
+import java.util.Random;
+import java.util.Scanner;
+
 public class Sorter {
 
     void main() {
@@ -133,6 +134,8 @@ public class Sorter {
         int count = 0;                     // number of pushes used during the sorting
 
         // ******************************* START ADDING CODE HERE *****************************/
+
+        //Bleh bleh bleh
 
         // ****************************************************************************/
 
