@@ -1,11 +1,11 @@
 /**
- * <h2>Decipher.java - Decodes a hidden message from a LinkedList.</h2>
+ * <h2>Decipher.java - Uncodes a hidden message from a LinkedList.</h2>
  * <p><b>Description:</b></p>
  * <p style="margin-left: 30px;">
- *   Loads a scrambled String, repairs two characters using the iterator's
- *   set() method ( moving forward with next() and backward with previous() ),
- *   then reveals the secret message by printing every third character
- *   starting at a given position.</p>
+ *   Loads the scrambled string from the instructions, repairs two characters
+ *   using the iterator's set() method ( moving forward with next() and backward
+ *   with previous() ), then reveals the secret message by printing every third
+ *   character starting at a given position.</p>
  * @author Brian Nguyen
  * @version Lab 4, Project 2
  */
