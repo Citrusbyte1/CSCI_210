@@ -13,13 +13,13 @@
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
-public class StackList<E> {
+public class MyStack<E> {
     
     // Underlying structure for the stack.
     private ArrayList<E> list;
 
     // A new empty stack.
-    public StackList() {
+    public MyStack() {
 
         list = new ArrayList<E>();
     }
@@ -101,7 +101,7 @@ public class StackList<E> {
 
 // Testing the stack.
 // public static void main(String[] args) {
-//     StackList<String> stack = new StackList<>();
+//     MyStack<String> stack = new MyStack<>();
 //     stack.push("Hello");
 //     stack.push("World");
 //     System.out.println(stack.pop()); // Output: World
