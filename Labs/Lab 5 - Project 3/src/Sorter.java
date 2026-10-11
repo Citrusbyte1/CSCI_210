@@ -134,6 +134,35 @@ public class Sorter {
 
         // ******************************* START ADDING CODE HERE *****************************/
 
+        // holds the array to be sorted
+        StackLinkedList<E> stack1 = new StackLinkedList<>() ;
+        // holds the sorted array when finished
+        StackLinkedList<E> stack2 = new StackLinkedList<>() ; 
+
+        // Load the array onto stack1
+        for (E element : arr) {
+            stack1.push(element) ;
+        }
+
+        while (! stack1.isEmpty()) {
+
+            // to be filled in below
+            E temp = stack1.pop() ;
+            while (! stack2.isEmpty() && 
+                    temp.compareTo(stack2.peek()) > 0 ) {  
+                stack1.push(stack2.pop()) ;
+                count++ ;
+            }
+
+            stack2.push(temp) ;  
+            count++ ;
+        }
+
+        // Reload the elements from stack2 onto the array
+        for (int i = 0 ; i < arr.length ; i++) {
+            arr[i] = stack2.pop() ;
+        }
+        
         // ****************************************************************************/
 
         return count;                          // total number of pushes used
