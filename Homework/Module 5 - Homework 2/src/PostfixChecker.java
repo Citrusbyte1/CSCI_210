@@ -33,7 +33,7 @@ public class PostfixChecker {
     // Allowed operators in postfix
     private static final String OPERATORS = "+-*%/";
 
-    private static void main(String[] arge) {
+    private static void main(String[] args) {
 
         // Expression to check
         String[] expressions = {
@@ -71,6 +71,117 @@ public class PostfixChecker {
     public static Long evaluate(String postfix) {
 
         IO.println("Postfix: " + postfix.trim());
+        
+        if (postfix.trim().isEmpty()) {
+            IO.println("Empty expression.");
+        }
+
+        //splits the expression into tokens at the spaces.
+        String[] tokens = postfix.trim().split("\\s+");
+
+        //From Lab 5
+        MyStack<Long> stack = new MyStack<>();
+
+        for (String token : tokens) {
+
+            //An int is an operand, just push it to the stack
+            Long operand = parseOperand(token);
+
+            if (operand != null) {
+
+                stack.push(operand);
+
+                continue;
+            }
+
+            //Anything that isn't an int is an operator
+            if (!isOperator(token)) {
+
+                return error("Invalid operator: " + token);
+            }
+
+            char operator = token.charAt(0);
+
+            // Pop the right and left operands from the stack
+            if (stack.isEmpty()) {
+
+                return error("Too few operands for operator: " + operator);
+            }
+
+            long right = stack.pop();
+
+            if (stack.isEmpty()) {
+
+                return error("Too few operands for operator: " + operator);
+            }
+
+            long left = stack.pop();
+
+            // Division by 0 is an error
+            if ((operator == '/' || operator == '%') && right == 0) {
+
+                return error("Division by 0: " + left + " " + operator + " " + right);
+            }
+
+            // Do the operation
+            long result;
+
+            try {
+
+                result = switch (operator) {
+
+                    case '+' -> Math.addExact(left, right);
+                    case '-' -> Math.subtractExact(left, right);
+                    case '*' -> Math.multiplyExact(left, right);
+                    case '/' -> Math.divideExact(left, right);
+                    default  -> left % right;
+                };
+
+            } catch (ArithmeticException e) {
+
+                return error("Result too large: " + left + " " + operator + " " + right);
+            }
+
+            //Display it, then push the result back onto the stack
+            IO.println(left + " " + operator + " " + right + " = " + result);
+            stack.push(result);
+        }
+
+        // The last value left on the stack is the answer, but only if it is the
+        // only value left. Otherwise there were too many operands.
+        long finalValue = stack.pop();
+        if (!stack.isEmpty()) {
+
+            return error("Too many operands left on the stack");
+        }
+
+        IO.println("Result: " + finalValue);
+        return finalValue;
+    }
+
+    // Displays an error message and returns null if the expression isn't valid.
+    private static Long error(String message) {
+
+        IO.println("Error: " + message);
+
         return null;
+    }
+
+    // Homework 
+    private static Long parseOperand(String token) {
+
+        try {
+
+            return Long.parseLong(token);
+
+        } catch (NumberFormatException e) {
+
+            return null;
+        }
+    }
+
+        private static boolean isOperator(String token) {
+        
+        return token.length() == 1 && OPERATORS.indexOf(token.charAt(0)) != -1;
     }
 }
