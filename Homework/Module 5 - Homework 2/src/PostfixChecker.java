@@ -33,7 +33,7 @@ public class PostfixChecker {
     // Allowed operators in postfix
     private static final String OPERATORS = "+-*%/";
 
-    private static void main(String[] args) {
+    public static void main(String[] args) {
 
         // Expression to check
         String[] expressions = {
